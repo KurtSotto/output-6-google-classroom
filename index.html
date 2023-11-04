@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurt Cagulang Output 6</title>
+    <link rel="icon" href="./img.jpg">
+
+    <style>
+        b{
+            display: block;
+            margin-bottom: .4em;
+        }
+
+        p{
+            margin: 0;
+        }
+
+        h2{
+            margin-bottom: 0;
+        }
+
+        img{
+            width: 100px;
+            height: 100px;
+        }
+
+        main{
+            max-width: 700px;
+            width: 90%;
+            margin-inline: auto;
+            gap: 1em;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container{
+            border: 1px solid black;
+            padding: 1em;
+        }
+
+        .margin-bottom{
+            margin-bottom: 3em;
+        }
+
+        .active{
+            background-color: lightgreen;
+        }
+
+        #text{
+            color: black;
+            cursor: pointer;
+        }
+
+        @keyframes slideIn{
+            0%{
+                transform: translateX(-100%);
+            }
+
+            100%{
+                transform: translateX(0);
+            }
+        }
+
+        .slide-in{
+            animation: slideIn 1s;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <b>2. HTML Markup, 3. Basic Event Handling, Click Event and 5. Event Listeners</b>
+            <button id="button">Click Me!</button>
+        </div>
+       
+
+        <h2>Common Event Types</h2>
+        <div class="container">
+            <b>Mouseover and Mouseout Events</b>
+            <button id="myElement">click here</button>
+        </div>
+
+        <div class="container">
+            <b>Keydown and Keyup Events</b>
+            <p>Just click 'Enter' to trigger event</p>
+        </div>
+
+        <div class="container">
+            <b>Submit Event</b>
+            <form id="myForm">
+                <input type="text" name="username">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div class="container">
+            <b>Change Event</b>
+            <input type="checkbox" id="myCheckbox">
+        </div>
+
+        <div class="container">
+            <b>Load Event</b>
+            <p>Refresh the page to trigger the event</p>
+            <img id="img" src="./drak.jpg" alt="">
+        </div>
+
+        <div class="container">
+            <b>Resize Event</b>
+            <p>Resize the page to trigger the event</p>
+        </div>
+
+        <div class="container">
+            <b>Focus and Blur Events</b>
+            <input type="text" id="myInput">
+        </div>
+
+        <div class="container">
+            <b>Contextmenu Event</b>
+            <button id="contexto">Right click here to open menu</button>
+        </div>
+
+        <div class="container">
+            <b>Touch Events (Touchstart, Touchmove, Touchend)</b>
+            <p>Only trigger in touchscreen phones</p>
+        </div>
+
+        <div class="container" id="myScrollableDiv">
+            <b>Scroll Event</b>
+            <p>Scroll event is fired when the user scrolls a scrollable element</p>
+        </div>
+
+        <div class="container">
+            <b>Drag and Drop Events (Dragstart, Dragover, Drop)</b>
+            <div id="dragElement" draggable="true">Drag me!</div>
+            <div id="dropTarget">Drop here!</div>
+        </div>
+
+        <div class="container">
+            <b>6. Event Object</b>
+            <button id="myButton">click me</button>
+        </div>
+
+        <div class="container">
+            <b>Toggling a CSS class</b>
+            <button type="button" id="toggleButton">click me</button>
+        </div>
+
+        <div class="container">
+            <b>Modifying Text Styles</b>
+            <button type="button">click me!</button>
+            <p id="text">Test</p>
+        </div>
+
+        <div class="container">
+            <b>Creating Custom CSS Animations</b>
+            <button type="button" id="customButton">click me!</button>
+        </div>
+        
+
+    </main>
+    
+
+
+
+    <script>
+        // HTML Markup, Basic Event Handling, Click Event and Event Listeners
+        const button = document.getElementById('button')
+        button.addEventListener('click', function(){
+            alert('Button Clicked!')
+        })   
+
+
+        // Mouseover and Mouseout Events
+        const element = document.getElementById('myElement')
+        element.addEventListener('mouseover', function(){
+            element.style.backgroundColor = 'lightblue'
+        })
+        element.addEventListener('mouseout', function(){
+            element.style.backgroundColor = 'white'
+        })
+
+
+        // keydown and keyup events
+        document.addEventListener('keydown', function(event){
+            if(event.key === 'Enter'){
+                alert('Enter key pressed!')
+            }
+        })
+
+
+        // Submit Event
+        const form = document.getElementById('myForm')
+        form.addEventListener('submit', function(event){
+            event.preventDefault()
+            alert('Form Submitted')
+        })
+
+
+        // Change Event
+        const checkbox = document.getElementById('myCheckbox')
+        checkbox.addEventListener('change', function(){
+            alert('checkbox state changed')
+        })
+
+
+        // Load Event
+        const image = document.getElementById('img')
+        image.addEventListener('load', function(){
+            alert('Image loaded!')
+        })
+
+
+        // Resize Event
+        window.addEventListener('resize', function(){
+            alert('Window resized!')
+        })
+
+
+        // Focus and Blur Events
+        const input = document.getElementById('myInput')
+        input.addEventListener('focus', function(){
+            input.style.backgroundColor = 'lightyellow'
+        })
+        input.addEventListener('blur', function(){
+            input.style.backgroundColor = 'lightgray'
+        })
+
+
+        // Context Menu event
+        const context = document.getElementById('contexto')
+        context.addEventListener('contextmenu', function(event){
+            event.preventDefault()  
+            alert('Context menu opened!')
+        })
+
+
+        // Touch Events (Touchstart, Touchmove, Touchend)
+        /*touchElement.addEventListener('touchstart', function(event){
+            alert('Touch started!')
+        })*/
+
+
+        // Scroll event
+        const scrollableDiv = document.getElementById('myScrollableDiv')
+        scrollableDiv.addEventListener('scroll', function(){
+            alert('Scrolled')
+        })
+        
+
+        // Drag and Drop Events (Dragstart, Dragover, Drop)
+        const dragElement = document.getElementById('dragElement')
+        const dropTarget = document.getElementById('dropTarget')
+
+        dragElement.addEventListener('dragstart', function(event){
+            event.dataTransfer.setData('text/plain', 'Dragged item')
+        })
+        dropTarget.addEventListener('dragover', function(event){
+            event.preventDefault()
+        })
+        dropTarget.addEventListener('drop', function(event){
+            const data = event.dataTransfer.getData('text/plain')
+            alert(`Dropped: ${data}`)
+        })
+
+
+        // Event Object
+        const object = document.getElementById('myButton')
+        object.addEventListener('click', function(event){
+            alert(`Target: ${event.target.id}, Type: ${event.type}`)
+        })
+        
+
+        // Toggling a CSS class
+        const toggleButton = document.getElementById('toggleButton')
+
+        toggleButton.addEventListener('click', function(){
+            toggleButton.classList.toggle('active')
+        })
+
+
+        // Modifying Text Styles
+        const textElement = document.getElementById('text')
+
+        textElement.addEventListener('mouseenter', function(){
+            textElement.style.color = 'red'
+        })
+
+
+        textElement.addEventListener('mouseleave', function(){
+            textElement.style.color = 'green'
+        })
+
+
+
+        // Creating Custom CSS Animations
+        const custom = document.getElementById('customButton')
+
+        custom.addEventListener('click', function(){
+            custom.classList.add('slide-in')
+        })
+    </script>
+</body>
+</html>
